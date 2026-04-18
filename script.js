@@ -127,3 +127,50 @@ function applyAnimation(tag) {
 }
 
 ['h1', 'h2', 'h3', 'p', 'img'].forEach(applyAnimation);
+
+const slides = document.querySelectorAll('.slide');
+const nextBtn = document.getElementById('nextBtn');
+const prevBtn = document.getElementById('prevBtn');
+let currentSlide = 0;
+
+function updateSlides(index) {
+    // Remove active class from all and add to target
+    slides.forEach(slide => slide.classList.remove('active'));
+    slides[index].classList.add('active');
+
+    // Handle Button Visibility
+    // Hide Back button on first slide
+    prevBtn.style.display = (index === 0) ? 'none' : 'block';
+    
+    // Hide Next button on last slide (assuming 8 slides, index 7)
+    nextBtn.style.display = (index === slides.length - 1) ? 'none' : 'block';
+}
+
+nextBtn.addEventListener('click', () => {
+    if (currentSlide < slides.length - 1) {
+        currentSlide++;
+        updateSlides(currentSlide);
+    }
+});
+
+prevBtn.addEventListener('click', () => {
+    if (currentSlide > 0) {
+        currentSlide--;
+        updateSlides(currentSlide);
+    }
+});
+
+document.querySelectorAll('.read-more').forEach(button => {
+    button.addEventListener('click', () => {
+        const content = button.previousElementSibling;
+        content.classList.toggle('expanded');
+        
+        if (content.classList.contains('expanded')) {
+            button.textContent = 'Show Less';
+            content.style.maxHeight = 'none';
+        } else {
+            button.textContent = 'Read More';
+            content.style.maxHeight = '200px'; // Match your initial hidden size
+        }
+    });
+});

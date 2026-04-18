@@ -6,7 +6,7 @@ body, html {
     overflow-x: hidden;   
     overflow-y: auto; 
     scroll-behavior: smooth;
-    scroll-snap-type: y mandatory;
+    scroll-snap-type: y proximity;
 }
 
 body {
@@ -68,39 +68,6 @@ nav li a:hover {
   }
 
 
-/* Container for vertical line and label */
-.side-label {
-    position: absolute;
-    top: 0; /* adjust this to move it vertically */
-    right: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.5rem;
-    padding-right: 3rem;
-    z-index: 1000;
-;
-  }
-  
-  /* The vertical line */
-  .vertical-line {
-    width: 1.8px;
-    height: 320px;
-    background-color: #1a1c1a;
-    z-index: 100;
-  }
-  
-  /* Vertical text styling */
-  .vertical-text {
-    writing-mode: vertical-rl;
-    text-orientation: mixed;
-    font-size: 1rem;
-    letter-spacing: 0.3rem;
-    color: #1a1c1a;
-    font-weight: 500;
-  }
-  
-
 .hero {
     width: 100%;
     min-height: 100vh;
@@ -159,14 +126,20 @@ nav li a:hover {
     background-color: #1a1c1a;
     color: #f6dfbc;
     display: flex;
+    min-height: 100vh;
+    height: auto;
+    flex-direction: column;
+    padding: 40px 0;
+    align-items: center;
     justify-content: center;
-    position: relative;
 }
 
 .about-content {
     display: flex;
-    align-items: center;
-    gap: 4rem;
+    align-items: center; /* This centers the photo and text vertically relative to each other */
+    justify-content: center; /* Centers them horizontally */
+    width: 100%;
+    gap: 50px;
 }
 
 .profile-pic {
@@ -320,16 +293,25 @@ nav li a:hover {
 .projectssection {
     background-color: #1a1c1a;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: flex-start;
+    align-items: flex-start; 
     width: 100%;
     min-height: 100vh;
+    height: auto;
     position: relative;
+    padding: 60px 0; 
+    flex-direction: column;
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 
 .wrapper {
     width: 90%;
-    padding: 30px 0;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     text-align: center;
 }
 
@@ -340,6 +322,7 @@ nav li a:hover {
     margin-top: 10px 0;
     color: #f6dfbc;
 }
+
 .content {
     padding: 10%;
     color: #f6dfbc;
@@ -363,9 +346,8 @@ nav li a:hover {
 .main-content {
     width: 100%;
     display: grid;
-    grid-template-columns: 800px 800px ;
-    grid-row-gap: 25px;
-    grid-column-gap: 25px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
 }
 
 .main-content .box {
@@ -373,8 +355,8 @@ nav li a:hover {
     cursor: pointer;
     margin-bottom: 0;
     box-shadow: rgba(0,0,0,0.15);
-    height: 380px;
     overflow: hidden;
+    height: auto; /* Let the container snap to the image size */
 }
 
 .main-content .box::before{
@@ -394,9 +376,10 @@ nav li a:hover {
 }
 
 .main-content .box img {
-    width:100%;
-    height: 100%;
-    object-fit: cover;
+    width:auto;
+    max-height: 60vh; /* Ensures the image never takes more than 70% of the screen height */
+    object-fit: contain;
+    margin: 0 auto;
 }
 
 .main-content .box .img-text {
@@ -418,86 +401,159 @@ nav li a:hover {
     top: 0;
 }
 
-.contactsection {
-    background-color: #f6dfbc;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    min-height: 75vh;
+.story-slider {
     position: relative;
-    text-align: center;
-}
-
-.contact-content h2{
-    font-size: 100px;
-    margin: 0;
-}
-
-.contact-content p{
-    font-size: 24px;
-    margin: 0;
-}
-
-.email {
-    color: #584235;
-}
-
-
-.contactsection::after {
-    content: "";
     width: 100%;
-    height: 100%;
-    position: absolute;
-    background: url("images/flower2.png") bottom center;
-    background-size: cover;
-}
-
-.site-footer {
-    background-color: #1a1c1a;
-    color: #f6dfbc;
-    padding: 2rem 4rem;
+    min-height: 600px;
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    flex-wrap: wrap;
-    min-height: 25vh;
+    justify-content: center;
+    overflow: hidden;
+    margin-bottom: 50px;
 }
 
-.footer-content {
+.slide {
+    display: none; 
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    align-items: center;
     width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    padding: 0 5rem;
+    animation: fadeIn 0.5s ease;
 }
 
-.footer-info p {
-    margin: 0.5rem 0;
+.slide-text p {
     font-size: 20px;
-    line-height: 2.5;
+    font-weight: 500;
+    color: #f6dfbc;
+    line-height: 1.6;
+    margin: 0;
 }
 
-.footer-info .icon {
-    margin-right: 8px;
+.slide.active {
+    display: grid; 
 }
 
-.footer-icons a {
-    margin-left: 1rem;
-    display: inline-block;
-    width: 55px;
-    height: 55px;
+/* Alternating logic: Even slides swap order */
+.slide:nth-child(even) .slide-img { order: 2; }
+.slide:nth-child(even) .slide-text { order: 1; text-align: right; }
+
+.slide-img img {
+    width: 70%;
+    aspect-ratio: 3 / 4; 
+    max-height: 550px;
+    object-fit: cover;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    display: block;
+    margin: 0 auto;
 }
 
-.footer-icons img {
+.nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    border: none;
+    color: #f6dfbc;
+    font-size: 3rem;
+    cursor: pointer;
+    z-index: 10;
+    padding: 1rem;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+#prevBtn { left: 0; display: none; } /* Hidden on first slide */
+#nextBtn { right: 0; }
+
+.nav-btn:hover { color: #9f775e; transform: translateY(-50%) scale(1.1); }
+
+.nav-btn i {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateX(20px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+/* Passion Plan Grid */
+.passion-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.passion-card, 
+.passion-summary-card {
+    background: #f6dfbc; /* Cream background */
+    border-radius: 12px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease; /* Keeps the smooth feel without color changes */
+}
+
+/* 2. Top Grid Cards */
+.passion-card {
+    padding: 25px;
+    height: 420px;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.passion-card:hover {
+    transform: translateY(-5px); /* Optional: slight lift instead of color change */
+}
+
+.passion-card h3 {
+    color: #1a1c1a;
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+    font-weight: 600;
+    height: 60px; /* Ensures titles don't move the text below */
+}
+
+/* 4. Text Readability (Dark on Cream) */
+.passion-card p, 
+.passion-summary-card p {
+    color: #1a1c1a; /* Dark black/green for maximum readability */
+    font-size: 16px;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.passion-summary-card p {
+    text-align: center;
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+
+/* Scrollable content area */
+.card-content {
+    overflow-y: auto;
+    flex-grow: 1;
+    padding-right: 12px;
+}
+.card-content::-webkit-scrollbar {
+    width: 6px;
+}
+.card-content::-webkit-scrollbar-track {
+    background: rgba(26, 28, 26, 0.05);
+}
+
+.card-content::-webkit-scrollbar-thumb {
+    background: #9f775e;
+    border-radius: 10px;
+}
+
+/* Wide Bottom Card */
+.passion-summary-card {
+    margin-top: 30px;
+    padding: 25px 40px;
     width: 100%;
-    height: auto;
-    transition: transform 0.3s;
-}
-
-.footer-icons img:hover {
-    transform: scale(1.1);
-    border: 2px solid #f6dfbc; /* or any color you prefer */
-    border-radius: 50%;
+    border: none; /* Removed the dashed border for a cleaner look */
 }
 
 h1.animate-up,
@@ -520,6 +576,203 @@ img.reveal {
   transform: translateY(0);
 }
 
+/* LAPTOP & SMALL DESKTOP (Max-width 1366px) */
+@media (max-width: 1366px) {
+    .hero h1 {
+        font-size: 100px; /* Smaller "Hello, I am" */
+        margin-left: 2rem;
+    }
+
+    .scrolling-text-container h2 {
+        font-size: 180px; /* Smaller scrolling name */
+    }
+
+    .scrolling-text-container {
+        height: 220px;
+    }
+}
+
+@media (max-width: 1200px) {
+    .about-content {
+        flex-direction: column; /* Stack image on top of text */
+        gap: 2rem;
+        text-align: center;
+    }
+
+    .profile-pic {
+        width: 80%; /* Shrink image */
+        max-width: 400px;
+    }
+
+    .about-text {
+        margin-right: 0; /* Remove that 15rem margin */
+        text-align: center;
+        padding: 0 2rem;
+    }
+
+    /* Hide side labels on smaller screens so they don't cover text */
+    .side-label, .side-label2, .side-label3 {
+        display: none;
+    }
+}
+
+@media (max-width: 1024px) {
+    .passion-grid {
+        grid-template-columns: 1fr; /* Stack cards vertically */
+        gap: 20px;
+    }
+
+    .passion-card {
+        height: auto; /* Let them grow with content */
+        min-height: 300px;
+    }
+
+    .wrapper h1 {
+        font-size: 50px; /* Smaller section titles */
+    }
+}
+
+@media (max-width: 768px) {
+    nav {
+        width: 100%;
+        padding: 1rem;
+    }
+
+    nav ul {
+        justify-content: center; /* Center links on mobile */
+        gap: 1.5rem;
+    }
+
+    nav a {
+        font-size: 0.9rem;
+    }
+    
+    /* Adjust Conversion Story for Mobile */
+    .slide {
+        grid-template-columns: 1fr; /* Stack story image and text */
+        padding: 0 2rem;
+    }
+    
+    .slide:nth-child(even) .slide-text {
+        text-align: left; /* Keep text alignment consistent on mobile */
+    }
+}
+
+@media (max-width: 1400px) {
+    .about-text h2 {
+        font-size: 70px; /* Much smaller than the original 280px */
+        margin-top: 20px;
+    }
+    
+    .profile-pic {
+        width: 500px; /* Shrinks the photo so it doesn't push text away */
+        height: auto;
+    }
+
+    .about-content {
+        gap: 50px; /* Tightens the space between pic and text */
+        margin-top: 20px;
+    }
+    
+    .about-text {
+        margin-right: 5%; /* Reduces that massive 15rem margin */
+    }
+}
+
+@media (max-width: 1100px) {
+    .passion-grid {
+        grid-template-columns: 1fr; /* Stacks them vertically */
+        max-width: 500px;
+        margin: 0 auto;
+    }
+
+    .passion-card {
+        height: auto; /* Let them expand naturally */
+        min-height: 250px;
+    }
+    
+    .projectssection {
+        padding-top: 100px; /* More room for navigation */
+    }
+}
+
+@media (max-width: 1400px) {
+    .passion-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+        margin: 10px auto 0 auto;
+        width: 100%;
+        max-width: 1100px;
+        justify-items: center;
+    }
+
+    .passion-card {
+        height: 380px; /* Increased height slightly since summary is gone */
+        padding: 20px;
+        width: 100%;
+        max-width: 350px;
+    }
+
+    .passion-card h3 {
+        font-size: 1.2rem;
+        margin-bottom: 10px;
+    }
+
+    .passion-card p {
+        font-size: 0.9rem;
+    }
+    #passion .wrapper {
+        justify-content: center; /* Centering the whole grid vertically if there's extra room */
+        min-height: 80vh; 
+    }
+}
+
+@media (max-width: 1400px) {
+    /* 1. Reduce title margins */
+    .wrapper h1 {
+        font-size: 50px;
+        margin-bottom: 40px;
+        margin-top: 10px;
+    }
+
+    #story .wrapper h1 {
+        font-size: 50px;
+        margin-bottom: 0;
+        margin-top: 15px;
+    }
+
+    /* 2. Adjust the section alignment */
+    .projectssection {
+        justify-content: flex-start; /* Aligns content to top instead of forcing it to the absolute center */
+        padding-top: 80px; /* Gives a consistent gap from the top of the screen */
+    }
+}
+
+@media (max-width: 1400px) {
+    .story-slider {
+        margin-top: 0;
+    }
+
+    .slide {
+        gap: 30px;
+        align-items: center;
+        min-height: 450px;
+    }
+
+    .story-img img {
+        max-height: 320px; /* Shrinks the story photo */
+        width: auto;
+    }
+
+    .slide-text p {
+        font-size: 1.1rem;
+        line-height: 1.6;
+        max-height: none; /* Adds internal scroll if text is too long */
+        overflow: visible;
+    }
+}
 
 
-  
+
+
+
