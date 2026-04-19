@@ -635,7 +635,7 @@ img.reveal {
     }
     
     #journey .main-content .box img {
-        max-height: 50vh; /* Prevents image from pushing content off-screen */
+        max-height: 60vh; /* Prevents image from pushing content off-screen */
         width: auto;
     }
 
@@ -660,7 +660,7 @@ img.reveal {
     }
 
     #story .slide-text p {
-        font-size: 1rem; 
+        font-size: 1.1rem; 
         line-height: 1.4;
     }
 
@@ -690,6 +690,17 @@ img.reveal {
         height: 60vh;
     }
 
+    .glass-summary {
+        width: 70%;      /* Narrower width to show more of the background photo */
+        padding: 15px;   /* Reduced padding to shrink the height */
+        bottom: 30px;    /* Pushed lower to clear the faces in the photo */
+    }
+
+    .glass-summary p {
+        font-size: 0.9rem; /* Smaller font to help shrink the glass box height */
+        line-height: 1.4;
+    }
+    
     .profile-pic {
         width: 500px; /* Reduced from 800px/500px to fit vertically */
         height: auto;
