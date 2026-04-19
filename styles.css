@@ -524,202 +524,6 @@ img.reveal {
   transform: translateY(0);
 }
 
-/* LAPTOP & SMALL DESKTOP (Max-width 1366px) */
-@media (max-width: 1366px) {
-    .hero h1 {
-        font-size: 100px; /* Smaller "Hello, I am" */
-        margin-left: 2rem;
-    }
-
-    .scrolling-text-container h2 {
-        font-size: 180px; /* Smaller scrolling name */
-    }
-
-    .scrolling-text-container {
-        height: 220px;
-    }
-}
-
-@media (max-width: 1200px) {
-    .about-content {
-        flex-direction: column; /* Stack image on top of text */
-        gap: 2rem;
-        text-align: center;
-    }
-
-    .profile-pic {
-        width: 80%; /* Shrink image */
-        max-width: 400px;
-    }
-
-    .about-text {
-        margin-right: 0; /* Remove that 15rem margin */
-        text-align: center;
-        padding: 0 2rem;
-    }
-
-    /* Hide side labels on smaller screens so they don't cover text */
-    .side-label, .side-label2, .side-label3 {
-        display: none;
-    }
-}
-
-@media (max-width: 1024px) {
-    .passion-grid {
-        grid-template-columns: 1fr; /* Stack cards vertically */
-        gap: 20px;
-    }
-
-    .passion-card {
-        height: auto; /* Let them grow with content */
-        min-height: 300px;
-    }
-
-    .wrapper h1 {
-        font-size: 50px; /* Smaller section titles */
-    }
-}
-
-@media (max-width: 768px) {
-    nav {
-        width: 100%;
-        padding: 1rem;
-    }
-
-    nav ul {
-        justify-content: center; /* Center links on mobile */
-        gap: 1.5rem;
-    }
-
-    nav a {
-        font-size: 0.9rem;
-    }
-    
-    /* Adjust Conversion Story for Mobile */
-    .slide {
-        grid-template-columns: 1fr; /* Stack story image and text */
-        padding: 0 2rem;
-    }
-    
-    .slide:nth-child(even) .slide-text {
-        text-align: left; /* Keep text alignment consistent on mobile */
-    }
-}
-
-@media (max-width: 1400px) {
-    .about-text h2 {
-        font-size: 70px; /* Much smaller than the original 280px */
-        margin-top: 20px;
-    }
-    
-    .profile-pic {
-        width: 500px; /* Shrinks the photo so it doesn't push text away */
-        height: auto;
-    }
-
-    .about-content {
-        gap: 50px; /* Tightens the space between pic and text */
-        margin-top: 20px;
-    }
-    
-    .about-text {
-        margin-right: 5%; /* Reduces that massive 15rem margin */
-    }
-}
-
-@media (max-width: 1100px) {
-    .passion-grid {
-        grid-template-columns: 1fr; /* Stacks them vertically */
-        max-width: 500px;
-        margin: 0 auto;
-    }
-
-    .passion-card {
-        height: auto; /* Let them expand naturally */
-        min-height: 250px;
-    }
-    
-    .projectssection {
-        padding-top: 100px; /* More room for navigation */
-    }
-}
-
-@media (max-width: 1400px) {
-    .passion-grid {
-        grid-template-columns: repeat(3, 1fr);
-        gap: 20px;
-        margin: 10px auto 0 auto;
-        width: 100%;
-        max-width: 1100px;
-        justify-items: center;
-    }
-
-    .passion-card {
-        height: 380px; /* Increased height slightly since summary is gone */
-        padding: 20px;
-        width: 100%;
-        max-width: 350px;
-    }
-
-    .passion-card h3 {
-        font-size: 1.2rem;
-        margin-bottom: 10px;
-    }
-
-    .passion-card p {
-        font-size: 0.9rem;
-    }
-    #passion .wrapper {
-        justify-content: center; /* Centering the whole grid vertically if there's extra room */
-        min-height: 80vh; 
-    }
-}
-
-@media (max-width: 1400px) {
-    /* 1. Reduce title margins */
-    .wrapper h1 {
-        font-size: 50px;
-        margin-bottom: 40px;
-        margin-top: 10px;
-    }
-
-    #story .wrapper h1 {
-        font-size: 50px;
-        margin-bottom: 0;
-        margin-top: 15px;
-    }
-
-    /* 2. Adjust the section alignment */
-    .projectssection {
-        justify-content: flex-start; /* Aligns content to top instead of forcing it to the absolute center */
-        padding-top: 80px; /* Gives a consistent gap from the top of the screen */
-    }
-}
-
-@media (max-width: 1400px) {
-    .story-slider {
-        margin-top: 0;
-    }
-
-    .slide {
-        gap: 30px;
-        align-items: center;
-        min-height: 450px;
-    }
-
-    .story-img img {
-        max-height: 320px; /* Shrinks the story photo */
-        width: auto;
-    }
-
-    .slide-text p {
-        font-size: 1.1rem;
-        line-height: 1.6;
-        max-height: none; /* Adds internal scroll if text is too long */
-        overflow: visible;
-    }
-}
-
 .music-container {
     position: fixed;
     bottom: 30px;
@@ -757,7 +561,6 @@ img.reveal {
     50% { box-shadow: 0 0 20px rgba(255, 255, 255, 0.6); }
     100% { box-shadow: 0 0 10px rgba(255, 255, 255, 0.3); }
 }
-
 
 .final-section {
     min-height: 100vh; /* Increased height to give the big photo room */
@@ -814,34 +617,6 @@ img.reveal {
     font-weight: 400;
 }
 
-@media (max-width: 1400px) {
-    .photo-container {
-        height: 75vh; /* Use even more screen height on laptops */
-        max-width: 900px;
-    }
-
-    .glass-summary {
-        width: 85%;
-        padding: 25px;
-        bottom: 30px;
-    }
-
-    .glass-summary p {
-        font-size: 0.95rem;
-    }
-}
-
-@media (max-width: 768px) {
-    .glass-summary {
-        position: relative; /* Stacks it below the photo instead of on top */
-        bottom: 0;
-        left: 0;
-        transform: none;
-        width: 100%;
-        margin-top: -20px; /* Overlaps slightly for style */
-        border-radius: 0 0 15px 15px;
-    }
-}
 
 @media screen and (max-width: 1600px) {
     /* 1. Shrink Hero Section */
@@ -853,21 +628,29 @@ img.reveal {
     #works .wrapper {
         padding: 20px 0; /* Tighten up the vertical space */
     }
+
+    #works h1 {
+        font-size: 60px; /* Shrinking the section title */
+        margin-bottom: 20px;
+    }
     
     .project-card img {
-        max-height: 200px; /* Shrink images so they don't push content down */
+        max-height: 180px; /* Shrinking map images to prevent spillover */
         width: auto;
     }
 
-    /* 3. Fix Conversion Story (The Slider) */
-    .story-img img {
-        max-height: 200px !important; /* Forces image to be small enough for laptop */
-        width: auto;
+    .conversion-story h1 {
+        font-size: 60px; /* Shrink title to match others */
     }
     
+    .story-img img {
+        max-height: 180px !important; /* Smaller image to give text more room */
+        width: auto;
+    }
+
     .slide-text p {
-        font-size: 0.95rem;
-        line-height: 1.4;
+        font-size: 1.1rem; /* Made slightly bigger as requested */
+        line-height: 1.5;
     }
 
     /* 4. Fix Passion Plan (The Cards) */
@@ -885,8 +668,246 @@ img.reveal {
     }
 
     .photo-container {
-        width: 95% !important; /* Force wide again */
-        max-width: 1200px !important; 
-        height: 60vh; /* Keep height moderate */
+        width: 95% !important;
+        max-width: 1200px !important;
+        height: 60vh;
+    }
+
+    .profile-pic {
+        width: 450px; /* Reduced from 800px/500px to fit vertically */
+        height: auto;
+    }
+    .about-text h2 {
+        font-size: 60px; /* Smaller header */
+    }
+    .about-text p {
+        font-size: 18px; /* Smaller body font for About section */
     }
 }
+
+@media (max-width: 1400px) {
+    .about-text h2 {
+        font-size: 70px; /* Much smaller than the original 280px */
+        margin-top: 20px;
+    }
+    
+    .profile-pic {
+        width: 500px; /* Shrinks the photo so it doesn't push text away */
+        height: auto;
+    }
+
+    .about-content {
+        gap: 50px; /* Tightens the space between pic and text */
+        margin-top: 20px;
+    }
+    
+    .about-text {
+        margin-right: 5%; /* Reduces that massive 15rem margin */
+    }
+}
+
+@media (max-width: 1400px) {
+    .passion-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+        margin: 10px auto 0 auto;
+        width: 100%;
+        max-width: 1100px;
+        justify-items: center;
+    }
+
+    .passion-card {
+        height: 380px; /* Increased height slightly since summary is gone */
+        padding: 20px;
+        width: 100%;
+        max-width: 350px;
+    }
+
+    .passion-card h3 {
+        font-size: 1.2rem;
+        margin-bottom: 10px;
+    }
+
+    .passion-card p {
+        font-size: 0.9rem;
+    }
+    #passion .wrapper {
+        justify-content: center; /* Centering the whole grid vertically if there's extra room */
+        min-height: 80vh; 
+    }
+}
+
+@media (max-width: 1400px) {
+    /* 1. Reduce title margins */
+    .wrapper h1 {
+        font-size: 50px;
+        margin-bottom: 40px;
+        margin-top: 10px;
+    }
+
+    #story .wrapper h1 {
+        font-size: 50px;
+        margin-bottom: 0;
+        margin-top: 15px;
+    }
+
+    /* 2. Adjust the section alignment */
+    .projectssection {
+        justify-content: flex-start; /* Aligns content to top instead of forcing it to the absolute center */
+        padding-top: 80px; /* Gives a consistent gap from the top of the screen */
+    }
+}
+
+@media (max-width: 1400px) {
+    .photo-container {
+        height: 75vh; /* Use even more screen height on laptops */
+        max-width: 900px;
+    }
+
+    .glass-summary {
+        width: 85%;
+        padding: 25px;
+        bottom: 30px;
+    }
+
+    .glass-summary p {
+        font-size: 0.95rem;
+    }
+}
+
+@media (max-width: 1400px) {
+    .story-slider {
+        margin-top: 0;
+    }
+
+    .slide {
+        gap: 30px;
+        align-items: center;
+        min-height: 450px;
+    }
+
+    .story-img img {
+        max-height: 320px; /* Shrinks the story photo */
+        width: auto;
+    }
+
+    .slide-text p {
+        font-size: 1.1rem;
+        line-height: 1.6;
+        max-height: none; /* Adds internal scroll if text is too long */
+        overflow: visible;
+    }
+}
+
+/* LAPTOP & SMALL DESKTOP (Max-width 1366px) */
+@media (max-width: 1366px) {
+    .hero h1 {
+        font-size: 100px; /* Smaller "Hello, I am" */
+        margin-left: 2rem;
+    }
+
+    .scrolling-text-container h2 {
+        font-size: 180px; /* Smaller scrolling name */
+    }
+
+    .scrolling-text-container {
+        height: 220px;
+    }
+}
+
+@media (max-width: 1200px) {
+    .about-content {
+        flex-direction: column; /* Stack image on top of text */
+        gap: 2rem;
+        text-align: center;
+    }
+
+    .profile-pic {
+        width: 80%; /* Shrink image */
+        max-width: 400px;
+    }
+
+    .about-text {
+        margin-right: 0; /* Remove that 15rem margin */
+        text-align: center;
+        padding: 0 2rem;
+    }
+
+    /* Hide side labels on smaller screens so they don't cover text */
+    .side-label, .side-label2, .side-label3 {
+        display: none;
+    }
+}
+
+@media (max-width: 1100px) {
+    .passion-grid {
+        grid-template-columns: 1fr; /* Stacks them vertically */
+        max-width: 500px;
+        margin: 0 auto;
+    }
+
+    .passion-card {
+        height: auto; /* Let them expand naturally */
+        min-height: 250px;
+    }
+    
+    .projectssection {
+        padding-top: 100px; /* More room for navigation */
+    }
+}
+
+@media (max-width: 1024px) {
+    .passion-grid {
+        grid-template-columns: 1fr; /* Stack cards vertically */
+        gap: 20px;
+    }
+
+    .passion-card {
+        height: auto; /* Let them grow with content */
+        min-height: 300px;
+    }
+
+    .wrapper h1 {
+        font-size: 50px; /* Smaller section titles */
+    }
+}
+
+@media (max-width: 768px) {
+    nav {
+        width: 100%;
+        padding: 1rem;
+    }
+
+    nav ul {
+        justify-content: center; /* Center links on mobile */
+        gap: 1.5rem;
+    }
+
+    nav a {
+        font-size: 0.9rem;
+    }
+    
+    /* Adjust Conversion Story for Mobile */
+    .slide {
+        grid-template-columns: 1fr; /* Stack story image and text */
+        padding: 0 2rem;
+    }
+    
+    .slide:nth-child(even) .slide-text {
+        text-align: left; /* Keep text alignment consistent on mobile */
+    }
+}
+
+@media (max-width: 768px) {
+    .glass-summary {
+        position: relative; /* Stacks it below the photo instead of on top */
+        bottom: 0;
+        left: 0;
+        transform: none;
+        width: 100%;
+        margin-top: -20px; /* Overlaps slightly for style */
+        border-radius: 0 0 15px 15px;
+    }
+}
+
+
