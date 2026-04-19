@@ -19,6 +19,8 @@ body {
 section {
     min-height: 100vh;
     scroll-snap-align: start;
+    height: auto; /* Add this line */
+    overflow: hidden; /* Keeps things tidy */
 }
 
 nav {
@@ -841,3 +843,39 @@ img.reveal {
     }
 }
 
+@media screen and (max-width: 1600px) {
+    /* 1. Shrink Hero Section */
+    .hero {
+        padding: 8rem 0 2rem 0; /* Reduced top padding */
+    }
+    .hero h1 {
+        font-size: 100px; /* Reduced from 140px */
+    }
+    .scrolling-text-container {
+        height: 200px; /* Reduced from 320px */
+    }
+    .scrolling-text-container h2 {
+        font-size: 180px; /* Reduced from 280px */
+    }
+
+    /* 2. Fix Profile Picture and About Text */
+    .profile-pic {
+        width: 500px; /* Reduced from 800px to prevent vertical spill */
+    }
+    .about-text h2 {
+        font-size: 70px; /* Reduced from 100px */
+    }
+    .about-text p {
+        font-size: 20px; /* Reduced from 28px for better fit */
+        line-height: 1.6;
+    }
+
+    /* 3. Final Photo Section */
+    .photo-container {
+        height: 60vh; /* Shorter height for the group photo */
+    }
+    .glass-summary {
+        width: 85%;
+        padding: 20px;
+    }
+}
