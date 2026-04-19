@@ -626,22 +626,22 @@ img.reveal {
 
 /* 2. Fix Journey Map Section (Matches id="journey") */
     #journey.projectssection {
-        padding-top: 40px; 
+        padding-top: 50px; 
     }
 
     #journey .wrapper h1 {
         font-size: 55px; /* Shrunk title to fit laptop height */
-        margin-bottom: 15px;
+        margin-bottom: 20px;
     }
     
     #journey .main-content .box img {
-        max-height: 45vh; /* Prevents image from pushing content off-screen */
+        max-height: 50vh; /* Prevents image from pushing content off-screen */
         width: auto;
     }
 
     /* 3. Fix Conversion Story (Matches id="story") */
     #story.projectssection {
-        padding-top: 40px;
+        padding-top: 50px;
     }
 
     #story .wrapper h1 {
@@ -650,7 +650,7 @@ img.reveal {
     }
     
     #story .slide-img img {
-        max-height: 350px !important; /* Smaller image height for laptops */
+        max-height: 400px !important; /* Smaller image height for laptops */
         width: auto;
     }
 
@@ -660,6 +660,12 @@ img.reveal {
     }
 
     /* 4. Passion Plan Adjustments */
+
+    #passion .wrapper h1 {
+        font-size: 55px; /* Shrunk title to fit laptop height */
+        margin-bottom: 20px;
+    }
+
     .passion-card {
         height: 300px; /* Adjusted to prevent overflow */
         padding: 15px;
