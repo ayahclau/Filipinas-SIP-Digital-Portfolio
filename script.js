@@ -174,3 +174,31 @@ document.querySelectorAll('.read-more').forEach(button => {
         }
     });
 });
+
+//Music Player
+const music = document.getElementById('bg-music');
+const toggleBtn = document.getElementById('music-toggle');
+const icon = document.getElementById('music-icon');
+music.loop = true;
+
+// Set volume lower for that subtle lofi feel
+music.volume = 0.3; 
+
+// Toggle Function
+toggleBtn.addEventListener('click', () => {
+    if (music.paused) {
+        music.play();
+        icon.textContent = '🔊';
+    } else {
+        music.pause();
+        icon.textContent = '🔈';
+    }
+});
+
+// Auto-play workaround: Starts music on first click anywhere
+document.addEventListener('click', () => {
+    if (music.paused) {
+        music.play();
+        icon.textContent = '🔊';
+    }
+}, { once: true }); // '{ once: true }' makes sure this only runs the very first time
