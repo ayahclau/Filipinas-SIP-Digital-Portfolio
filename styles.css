@@ -631,7 +631,7 @@ img.reveal {
 
     #journey .wrapper h1 {
         font-size: 60px; /* Shrunk title to fit laptop height */
-        margin-bottom: 20px;
+        margin-bottom: 25px;
     }
     
     #journey .main-content .box img {
@@ -652,10 +652,6 @@ img.reveal {
     #story .story-slider {
         margin-top: 10px;    /* Small controlled gap */
         min-height: 450px;   /* Reduced from 600px to pull content up */
-    }
-
-    #story .slide {
-        min-height: 400px;   /* Match the slider reduction */
     }
     
     #story .slide-img img {
