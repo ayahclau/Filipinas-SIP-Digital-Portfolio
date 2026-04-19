@@ -556,10 +556,37 @@ img.reveal {
     animation: glow-pulse 2s infinite ease-in-out;
 }
 
-@keyframes glow-pulse {
-    0% { box-shadow: 0 0 10px rgba(255, 255, 255, 0.3); }
-    50% { box-shadow: 0 0 20px rgba(255, 255, 255, 0.6); }
-    100% { box-shadow: 0 0 10px rgba(255, 255, 255, 0.3); }
+/* The Rotating Animation */
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* The Pulsing Glow Animation */
+@keyframes glowPulse {
+    0% { 
+        box-shadow: 0 0 5px 2px rgba(246, 223, 188, 0.3); 
+    }
+    50% { 
+        /* Increased spread (15px) and opacity (0.9) to make it visible */
+        box-shadow: 0 0 20px 8px rgba(246, 223, 188, 0.9); 
+    }
+    100% { 
+        box-shadow: 0 0 5px 2px rgba(246, 223, 188, 0.3); 
+    }
+}
+
+/* Apply to the toggle button when playing */
+#music-toggle.music-playing {
+    animation: glowPulse 2s ease-in-out infinite;
+    border: 1px solid #f6dfbc; /* Ensures there's a boundary for the glow */
+    background-color: #1a1c1a; /* Slight highlight to the button itself */
+}
+
+/* Class to apply when music is playing */
+.music-playing #music-icon {
+    display: inline-block; /* Required for transform to work */
+    animation: spin 3s linear infinite;
 }
 
 .final-section {
@@ -623,6 +650,10 @@ img.reveal {
     .hero h1 { font-size: 100px; }
     .scrolling-text-container { height: 200px; }
     .scrolling-text-container h2 { font-size: 180px; }
+
+    .works-text {
+        font-size: 80px;
+    }
 
 /* 2. Fix Journey Map Section (Matches id="journey") */
     #journey.projectssection {
@@ -700,7 +731,7 @@ img.reveal {
         font-size: 0.9rem; /* Smaller font to help shrink the glass box height */
         line-height: 1.4;
     }
-    
+
     .profile-pic {
         width: 500px; /* Reduced from 800px/500px to fit vertically */
         height: auto;

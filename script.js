@@ -27,19 +27,30 @@ window.addEventListener('scroll', () => {
 let lastScrollTop = 0;
 const navbar = document.querySelector('nav');
 
+// window.addEventListener('scroll', () => {
+//   let scrollTop = window.scrollY || document.documentElement.scrollTop;
+
+//   if (scrollTop > lastScrollTop) {
+//     // Scrolling down
+//     navbar.style.top = '-100px'; // move out of view
+//   } else {
+//     // Scrolling up
+//     navbar.style.top = '-100px';
+//   }
+
+//   lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+// });
+
 window.addEventListener('scroll', () => {
-  let scrollTop = window.scrollY || document.documentElement.scrollTop;
+  // This simply forces the navbar to stay at the top position 
+  // with its CSS transition whenever a scroll event is detected.
+  navbar.style.top = '0';
+}, { passive: true });
 
-  if (scrollTop > lastScrollTop) {
-    // Scrolling down
-    navbar.style.top = '-100px'; // move out of view
-  } else {
-    // Scrolling up
-    navbar.style.top = '-100px';
-  }
-
-  lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
-});
+// Ensure it is visible on page load if they start in the middle of the page
+if (window.scrollY > 0) {
+    navbar.style.top = '0';
+}
 
 // Smooth scroll on wheel
 document.querySelectorAll('section').forEach((section) => {
@@ -189,16 +200,22 @@ toggleBtn.addEventListener('click', () => {
     if (music.paused) {
         music.play();
         icon.textContent = '🔊';
+        toggleBtn.classList.add('music-playing'); // Add animation
     } else {
         music.pause();
         icon.textContent = '🔈';
+        toggleBtn.classList.remove('music-playing'); // Stop animation
     }
 });
 
 // Auto-play workaround: Starts music on first click anywhere
 document.addEventListener('click', () => {
     if (music.paused) {
-        music.play();
-        icon.textContent = '🔊';
+        music.play().then(() => {
+            icon.textContent = '🔊';
+            toggleBtn.classList.add('music-playing'); // Trigger rotation & glow
+        }).catch(error => {
+            console.log("Autoplay prevented or failed:", error);
+        });
     }
-}, { once: true }); // '{ once: true }' makes sure this only runs the very first time
+}, { once: true }); // This ensures it only runs on the very FIRST click
