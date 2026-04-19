@@ -624,33 +624,45 @@ img.reveal {
     .scrolling-text-container { height: 200px; }
     .scrolling-text-container h2 { font-size: 180px; }
 
-    /* 2. Fix Project/Journey Section (the "Works" section) */
-    #works .wrapper {
-        padding: 20px 0; /* Tighten up the vertical space */
+    #journey.projectssection {
+        padding-top: 40px; 
     }
 
-    #works h1 {
-        font-size: 60px; /* Shrinking the section title */
-        margin-bottom: 20px;
+    #journey .wrapper h1 {
+        font-size: 55px; /* Shrunk title to fit laptop height */
+        margin-bottom: 15px;
+    }
+
+    /* 2. Fix Journey Map Section (Matches id="journey") */  
+    #journey .main-content .box img {
+        max-height: 45vh; /* Prevents image from pushing content off-screen */
+        width: auto;
     }
     
-    .project-card img {
-        max-height: 180px; /* Shrinking map images to prevent spillover */
+    /* 3. Fix Conversion Story (Matches id="story") */
+    #story.projectssection {
+        padding-top: 40px;
+    }
+
+    #story .wrapper h1 {
+        font-size: 55px; 
+        margin-bottom: 10px;
+    }
+    
+    #story .slide-img img {
+        max-height: 350px !important; /* Smaller image height for laptops */
         width: auto;
     }
 
-    .conversion-story h1 {
-        font-size: 60px; /* Shrink title to match others */
-    }
-    
-    .story-img img {
-        max-height: 180px !important; /* Smaller image to give text more room */
-        width: auto;
+    #story .slide-text p {
+        font-size: 1rem; 
+        line-height: 1.4;
     }
 
-    .slide-text p {
-        font-size: 1.1rem; /* Made slightly bigger as requested */
-        line-height: 1.5;
+    /* 4. Passion Plan Adjustments */
+    .passion-card {
+        height: 350px; /* Adjusted to prevent overflow */
+        padding: 15px;
     }
 
     /* 4. Fix Passion Plan (The Cards) */
