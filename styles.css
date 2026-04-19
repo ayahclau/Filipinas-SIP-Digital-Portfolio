@@ -624,6 +624,7 @@ img.reveal {
     .scrolling-text-container { height: 200px; }
     .scrolling-text-container h2 { font-size: 180px; }
 
+/* 2. Fix Journey Map Section (Matches id="journey") */
     #journey.projectssection {
         padding-top: 40px; 
     }
@@ -632,13 +633,12 @@ img.reveal {
         font-size: 55px; /* Shrunk title to fit laptop height */
         margin-bottom: 15px;
     }
-
-    /* 2. Fix Journey Map Section (Matches id="journey") */  
+    
     #journey .main-content .box img {
         max-height: 45vh; /* Prevents image from pushing content off-screen */
         width: auto;
     }
-    
+
     /* 3. Fix Conversion Story (Matches id="story") */
     #story.projectssection {
         padding-top: 40px;
@@ -661,13 +661,7 @@ img.reveal {
 
     /* 4. Passion Plan Adjustments */
     .passion-card {
-        height: 350px; /* Adjusted to prevent overflow */
-        padding: 15px;
-    }
-
-    /* 4. Fix Passion Plan (The Cards) */
-    .passion-card {
-        height: 280px; /* Shorter cards to prevent overlap */
+        height: 300px; /* Adjusted to prevent overflow */
         padding: 15px;
     }
 
@@ -686,14 +680,14 @@ img.reveal {
     }
 
     .profile-pic {
-        width: 450px; /* Reduced from 800px/500px to fit vertically */
+        width: 500px; /* Reduced from 800px/500px to fit vertically */
         height: auto;
     }
     .about-text h2 {
         font-size: 60px; /* Smaller header */
     }
     .about-text p {
-        font-size: 18px; /* Smaller body font for About section */
+        font-size: 20px; /* Smaller body font for About section */
     }
 }
 
