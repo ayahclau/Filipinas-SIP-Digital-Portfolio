@@ -20,7 +20,7 @@ section {
     min-height: 100vh;
     scroll-snap-align: start;
     height: auto; /* Add this line */
-    overflow: hidden; /* Keeps things tidy */
+    overflow: visible; /* Keeps things tidy */
 }
 
 nav {
@@ -845,37 +845,48 @@ img.reveal {
 
 @media screen and (max-width: 1600px) {
     /* 1. Shrink Hero Section */
-    .hero {
-        padding: 8rem 0 2rem 0; /* Reduced top padding */
+    .hero h1 { font-size: 100px; }
+    .scrolling-text-container { height: 200px; }
+    .scrolling-text-container h2 { font-size: 180px; }
+
+    /* 2. Fix Project/Journey Section (the "Works" section) */
+    #works .wrapper {
+        padding: 20px 0; /* Tighten up the vertical space */
     }
-    .hero h1 {
-        font-size: 100px; /* Reduced from 140px */
-    }
-    .scrolling-text-container {
-        height: 200px; /* Reduced from 320px */
-    }
-    .scrolling-text-container h2 {
-        font-size: 180px; /* Reduced from 280px */
+    
+    .project-card img {
+        max-height: 200px; /* Shrink images so they don't push content down */
+        width: auto;
     }
 
-    /* 2. Fix Profile Picture and About Text */
-    .profile-pic {
-        width: 500px; /* Reduced from 800px to prevent vertical spill */
+    /* 3. Fix Conversion Story (The Slider) */
+    .story-img img {
+        max-height: 200px !important; /* Forces image to be small enough for laptop */
+        width: auto;
     }
-    .about-text h2 {
-        font-size: 70px; /* Reduced from 100px */
-    }
-    .about-text p {
-        font-size: 20px; /* Reduced from 28px for better fit */
-        line-height: 1.6;
+    
+    .slide-text p {
+        font-size: 0.95rem;
+        line-height: 1.4;
     }
 
-    /* 3. Final Photo Section */
+    /* 4. Fix Passion Plan (The Cards) */
+    .passion-card {
+        height: 280px; /* Shorter cards to prevent overlap */
+        padding: 15px;
+    }
+
+    /* 5. Fix Final Photo (Restore Width) */
+    .final-wrapper {
+        width: 100%;
+        max-width: 1400px;
+        display: flex;
+        justify-content: center;
+    }
+
     .photo-container {
-        height: 60vh; /* Shorter height for the group photo */
-    }
-    .glass-summary {
-        width: 85%;
-        padding: 20px;
+        width: 95% !important; /* Force wide again */
+        max-width: 1200px !important; 
+        height: 60vh; /* Keep height moderate */
     }
 }
